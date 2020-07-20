@@ -4,23 +4,23 @@
 //
 //  Created by Desmarais, Jacque on 6/1/20.
 //  Copyright © 2020 Desmarais, Jax. All rights reserved.
-//
+// 	MODEL
 
 import Foundation
 
 struct MemoryGame<CardContent> where CardContent: Equatable {
-    var cards: [Card]
+    private(set) var cards: [Card]
     var theme: EmojiTheme
     var score = 0
     var cardIsSeen = Set<Int>()
     
-    var indexOfTheOneAndOnlyFaceUpCard: Int? {
+    private var indexOfTheOneAndOnlyFaceUpCard: Int? {
         get { cards.indices.filter { cards[$0].isFaceUp }.only }
         set {
             for index in cards.indices {
-                if cards[index].isFaceUp {
-                    cardIsSeen.insert(cards[index].id)
-                }
+//                if cards[index].isFaceUp {
+//                    cardIsSeen.insert(cards[index].id)
+//                }
 				cards[index].isFaceUp = index == newValue
             }
         }

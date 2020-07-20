@@ -4,14 +4,14 @@
 //
 //  Created by Desmarais, Jacque on 6/1/20.
 //  Copyright © 2020 Desmarais, Jax. All rights reserved.
-//
+// 	VIEW MODEL
 
 import SwiftUI
 
 class EmojiMemoryGame: ObservableObject {
     @Published private var game: MemoryGame<String> = EmojiMemoryGame.createMemoryGame()
         
-    static func createMemoryGame() -> MemoryGame<String> {
+    private static func createMemoryGame() -> MemoryGame<String> {
         let emojiThemeCollection = themes.randomElement()!
         let emojis = emojiThemeCollection.emojiCollection
         let numberOfPairs = emojiThemeCollection.numberOfCards ?? Int.random(in: 2...emojis.count)
